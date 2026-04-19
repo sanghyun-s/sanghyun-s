@@ -1,45 +1,45 @@
-# Hi there 👋 I'm Sanghyun
+# Hi, I'm Sang-Hyun Seong 👋
 
-I'm currently studying **AI & Cloud Computing**, exploring how to build intelligent applications that solve real-world problems.
+Accounting professional building AI-powered tools for the profession I know best.
 
----
+Currently studying at **Baruch College** and training through the **Gen AI × Accounting** curriculum (Global AI Bootcamp), where I'm combining real-world accounting experience with full-stack development to build practical applications.
 
-## 🔭 Current Project
+## 🔧 What I'm Building
 
-### 📒 Accounting Journal Entry Helper (회계 분개 도우미)
-A mini web app built with **Streamlit + OpenAI API** that takes a transaction description and automatically generates debit/credit journal entries with recommended account titles.
+### [Transaction Agent Ultimate](https://github.com/sanghyun-s/transaction-agent-ultimate)
 
-**Tech Stack:** Python · Streamlit · OpenAI API · python-dotenv
+A full-stack AI accounting assistant — **FastAPI** backend + **Next.js** frontend — that automates tasks I used to do manually at a Korean-American tax firm.
 
-**Key Features:**
-- Bilingual support (한국어 / English)
-- AI-powered journal entry generation using GPT
-- Clean interactive UI with Streamlit
+**What it does:**
+- Generate debit/credit journal entries from plain-language descriptions (Korean + English)
+- Upload CSV, Excel, or PDF files → auto-clean with pandas → AI-powered financial analysis
+- Extract tables from 1099/W-2 PDFs using pdfplumber
+- Detect anomalies (z-score outlier flagging) and duplicate vendors automatically
+- Bilingual support: K-IFRS (Korean) and IFRS (English)
 
----
+**Built with:** Python, FastAPI, Next.js, React, OpenAI GPT-4o-mini, pandas, pdfplumber, Pydantic
 
-## 🛠️ Skills & Tools
+## 💼 Background
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
+- **Accounting experience** at Rowshan & Co (Korean-American tax firm) — 1099/W-2 processing, QuickBooks, client bookkeeping
+- **CPT training** in QuickBooks and general ledger management
+- Building portfolio projects that solve problems I actually encountered on the job
 
----
+## 🛠️ Tech Stack
 
-## 🌱 Currently Learning
+**Languages:** Python, JavaScript
 
-- Prompt Engineering (Few-shot, Chain-of-thought)
-- Cloud deployment & DevOps basics
-- Building AI-powered applications
+**Backend:** FastAPI, Pydantic, pydantic-settings
 
----
+**Frontend:** Next.js, React, CSS
 
-## 📫 How to Reach Me
+**AI/ML:** OpenAI API (GPT-4o-mini), prompt engineering (few-shot, chain-of-thought)
 
-- GitHub: [@sanghyun9811-cloud](https://github.com/sanghyun9811-cloud)
+**Data:** pandas, openpyxl, pdfplumber
 
----
+**Tools:** Git, VS Code, npm, pip, uvicorn
 
-*This profile is part of my Global AI Bootcamp coursework.*
+## 📫 Connect
+
+- **GitHub:** [sanghyun-s](https://github.com/sanghyun-s)
+- **School:** Baruch College, CUNY
