@@ -2,7 +2,7 @@
 
 Accounting professional building AI-powered tools for the profession I know best.
 
-Currently pursuing my **Master's in Business Analytics at Baruch College, CUNY**, with a Bachelor's in Business Administration from **Boston University**. Also training through the **Gen AI × Accounting** curriculum (Global AI Bootcamp), combining real accounting experience with full-stack development to build practical tools — not demos.
+Currently pursuing my **Master's in Business Analytics at Baruch College, CUNY**, with a Bachelor's in Business Administration from **Boston University**. Also training through the **Gen AI × Accounting** curriculum (Global AI Bootcamp), combining real accounting experience with full-stack development to build practical tools.
 
 ---
 
