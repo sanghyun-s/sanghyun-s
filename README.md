@@ -26,7 +26,7 @@ Key capabilities:
 
 ### In development
 
-**[CoReckoner](https://github.com/sanghyun-s/accounting-ai-chatbot)** — Hybrid RAG + Text-to-SQL chatbot for QuickBooks data. Ask questions about your books in plain English; the router classifies the query, runs the right pipeline (SQL execution or IRS regulation retrieval), and returns the answer with an auto-generated chart.
+**[CASSIA — Chat-based Accounting System](https://github.com/sanghyun-s/accounting-ai-chatbot)** — Hybrid RAG + Text-to-SQL chatbot for QuickBooks data. Ask questions about your books in plain English; the router classifies the query, runs the right pipeline (SQL execution or IRS regulation retrieval), and returns the answer with an auto-generated chart.
 
 **[AI Audit Risk Analyzer](https://github.com/sanghyun-s/ai-audit-risk-analyzer)** — ML anomaly detection (Isolation Forest) plus GPT narrative synthesis to surface and explain audit risks in GL transaction data. Flags round-number patterns, year-end clustering, and vendor anomalies, then generates PCAOB-aligned risk summaries.
 
