@@ -6,6 +6,9 @@ I'm pursuing my **M.S. in Business Analytics at Baruch College (CUNY)** — Zick
 
 Before graduate school I spent a year as a **staff accountant at a public accountancy firm**, doing full-cycle bookkeeping and tax-season work for 30+ small-business clients. Every app below traces back to a specific frustration I lived through on that job.
 
+**Portfolio status — 3 apps deployed, 1 in active iteration:**
+[PREPARE](https://prepare-recon.onrender.com/) · [CASSIA](https://cassia-utwt.onrender.com/) · [LUCENT](https://lucent-frontend.onrender.com) — all live. IRS Form Processor & Tax Schedule Classifier in design; TAU is the convergence hub.
+
 ---
 
 ## 🔧 Accounting Meets AI
@@ -20,7 +23,7 @@ The goal was never "AI for accounting" in the abstract. It's specific tools for 
 
 ### 🚀 Deployed
 
-**[PREPARE](https://github.com/sanghyun-s/PREPARE) — Reconciliation Prep Engine** *(v2.0 · deployed)*
+**[PREPARE](https://github.com/sanghyun-s/PREPARE) — Reconciliation Prep Engine** *(v2.0 · [live](https://prepare-recon.onrender.com/))*
 
 Turns messy bank and credit card statement PDFs into review-ready 1099 pre-reconciliation workbooks. Deliberately **not a 1099 filer** — the deliverable is the workbook a CPA reviews *before* filing.
 
@@ -31,13 +34,13 @@ The core insight is that this isn't a parsing problem, it's an accounting-classi
 - **Transcribe, Don't Compute.** The AI reads and labels; deterministic logic does the arithmetic — so the model can never silently "fix" a discrepancy by nudging numbers until they balance. In live testing it surfaced a $150 arithmetic gap and flagged the statement instead of papering over it.
 - **Three surfaces, three questions.** Per-Statement (is this statement trustworthy as a unit?), Consolidated Validation (across statements, what needs review?), and Excel workbooks (the full audit-ready evidence).
 
-*Measured on the reference test set:* 100% row-classification accuracy, 1–4 min and $0.12–$0.60 per PDF (Sonnet).
+*Measured on the reference test set:* 100% row-classification accuracy, 1–4 min and $0.12–$0.60 per PDF (Sonnet). *Deployed on Render (Docker).*
 
 *Stack:* Python · FastAPI · Claude Agent SDK · openpyxl · vanilla JS
 
 <br>
 
-**[CASSIA](https://github.com/sanghyun-s/cassia) — Chat-based Accounting System** *(v2.12.1 · deployed · no-login)*
+**[CASSIA](https://github.com/sanghyun-s/cassia) — Chat-based Accounting System** *(v2.12.x · [live](https://cassia-utwt.onrender.com/) · no-login · actively iterated)*
 
 *Previously built under the working name CoReckoner.* A chat-based accounting **support** workspace for small-business follow-up work — client questions, agency notices, and the follow-up tasks that sit on the support side of a practice, distinct from the bookkeeping/reconciliation/calculation tools. The workflow mirrors how accountants already work: **Ask → Retrieve → Visualize → Save → Organize → Recall → Follow up → Export.**
 
@@ -45,15 +48,13 @@ The core insight is that this isn't a parsing problem, it's an accounting-classi
 - **Semantic recall.** Save any answer or upload to a permanent "core," then pull it back months later by meaning ("what did I save about Q1 net income?"), not by exact title.
 - **Per-session document Q&A** with per-user vector isolation, multilingual answers (incl. Korean), export to Markdown / print-HTML / CSV, and heuristic SSN/EIN masking.
 
-**Deployment note:** Deployed on Render on **2026-06-28**; **login removed 2026-07-01** in favor of a no-login, anonymous per-browser workspace — a deliberate go-to-market call, since a name/email gate in front of a free tool suppresses first use. The full Phase-5 account system (bcrypt, server-side sessions, per-user isolation) is **retained in the codebase but frozen**, and can be re-enabled without a rewrite. Phases 1–6 complete, verified end-to-end across four accounting business-case simulations.
+**Deployment note:** Live on Render (Docker) since **2026-06-28**; **login removed 2026-07-01** in favor of a no-login, anonymous per-browser workspace — a deliberate go-to-market call, since a name/email gate in front of a free tool suppresses first use. The full Phase-5 account system (bcrypt, server-side sessions, per-user isolation) is **retained in the codebase but frozen**, and can be re-enabled without a rewrite. Still shipping minor patches (most recent within the last week).
 
 *Stack:* FastAPI (Python 3.13) · OpenAI gpt-4o-mini + text-embedding-3-small · ChromaDB · SQLite · LangChain · vanilla JS + Plotly
 
 <br>
 
-### 🛠️ Build complete · deployment next
-
-**[LUCENT](https://github.com/sanghyun-s/lucent-pre-audit-review-packet) — Pre-Audit Review Packet** *(Phases 1–5 shipped · deployment next)*
+**[LUCENT](https://github.com/sanghyun-s/lucent-pre-audit-review-packet) — Pre-Audit Review Packet** *(Phases 1–5 shipped · [live](https://lucent-frontend.onrender.com))*
 
 *Ledger Understanding, Control Evidence & Narrative Triage* — rebranded from ARGUS. Upload a company-level QuickBooks-style general ledger, and LUCENT narrows a large transaction population into a prioritized review queue, explains each risk indicator in plain language, and shows what evidence to request — before a close, CPA handoff, audit readiness, or investor diligence.
 
@@ -65,7 +66,7 @@ The framing is deliberate: **risk indication, not fraud detection.** A real clie
 
 Everything is anchored to real standards (AU-C 315, PCAOB AS 2401 / AS 2201, COSO 2013) as design rationale — never as a claim of performing an audit.
 
-*Next up (Phase 6):* deployment (Vercel + Render/Fly.io), repo rename, a rule-based Standards Grounding panel, Excel export, and CI/CD.
+**Deployment:** frontend (Next.js/React) and backend (FastAPI/Python) both live on Render. *Next up:* rule-based Standards Grounding panel, Excel export, CI/CD.
 
 *Stack:* FastAPI (Python 3.13) · Next.js 14 · React 18 · scikit-learn · OpenAI gpt-4o-mini · Tailwind · shadcn/ui · Plotly
 
@@ -91,9 +92,16 @@ Originally the experimental prototype where this whole portfolio started, TAU is
 
 ---
 
-## 🎯 Engineering principles I'm learning from these projects
+## 🔭 What's next — Generation 2 (direction)
 
-Building real accounting tools (rather than generic demos) surfaced a few principles that keep recurring across the portfolio:
+With the three main apps deployed, the questions have shifted from *"can I build this feature?"* to two harder ones — and Gen 2 is where I'm taking them. This is **direction, not shipped work yet:**
+
+- **Workflow interoperability.** Across the CPA-firm software landscape (QuickBooks/Xero/Sage/NetSuite, ADP/Paychex/Gusto, UltraTax/Lacerte/CCH), the real unit isn't the software — it's the **Entry Object** that moves between systems (the Journal Entry bridges payroll and bookkeeping; a tax-coded Trial Balance bridges into tax software). Gen 2 explores tools that make source data **destination-ready** for these canonical schemas. Strongest near-term candidate: a **Financial Statement Cross-Check** (clear scope, deterministic, connects everywhere).
+- **Data responsibility.** Deploying to real users — and thinking seriously about handling real accounting data — turned a product question into a governance one: *what responsibility does an app assume once it holds someone's data?* CASSIA's login-removal decision was the seed. The emerging principle: **hold only the data and privileges you actually need, for only as long as you need them** — security as a cross-cutting constraint, not a bolted-on feature.
+
+---
+
+## 🎯 Engineering principles I'm learning from these projects
 
 - **Transcribe, Don't Compute.** AI reads and labels; deterministic logic does the arithmetic. Protects against the model silently "fixing" discrepancies by adjusting numbers until they balance.
 - **Arithmetic in one place.** Computation lives in the pipeline; the frontend and Excel outputs display the same numbers, never recompute. Duplicate computation paths invite drift between surfaces.
@@ -101,6 +109,8 @@ Building real accounting tools (rather than generic demos) surfaced a few princi
 - **Validate, then fall back.** LLM output passes a strict validator (schema, length, banned-phrase, name-leakage) before display, with a deterministic fallback that's correct by construction — so the app stays usable and safe even when the model or the API isn't.
 - **Diagnostic-before-edit.** Before touching any live file, verify state with grep. Patch-by-patch with verification between each. Slower than batched edits; robust against the bugs that break production in non-obvious ways.
 - **Phased delivery with dev notes.** Every meaningful capability ships as a numbered phase with a written dev note — what shipped, what was rejected, what broke, and how to resume. It's what makes the work durable across long gaps.
+- **Systems of record stay the source of record.** *(Gen 2)* My tools prepare and validate data for existing accounting systems; they don't try to replace the ledger.
+- **Least data, least privilege, least time.** *(Gen 2)* An app should hold only the data and access it genuinely needs, for only as long as it needs them.
 
 ---
 
@@ -115,46 +125,48 @@ Building real accounting tools (rather than generic demos) surfaced a few princi
 
 This is the origin of the portfolio: PREPARE comes from the manual 1099 reconciliation that ate hours every tax season; CASSIA from clients asking the same follow-up questions every quarter; LUCENT from the manual GL review that takes auditors days; the IRS Form Processor from re-keying 1099/W-9 data by hand.
 
-**Education**
+---
 
-- **M.S. Business Analytics**, Baruch College (CUNY), Zicklin School of Business — *expected May 2027* · Data Analytics concentration · CPA 150-credit education requirement eligible · GPA 3.7 · coursework in Programming in Analytics, Database Management, Applied NLP, Accounting Analytics.
-- **B.S. Business Administration**, Boston University, Questrom School of Business — *May 2024* · Information Systems & Strategy and Innovation.
+## 🎓 Academics & continuous learning
 
-**Leadership**
+- **M.S. Business Analytics**, Baruch College (CUNY), Zicklin — *expected May 2027* · Data Analytics concentration · CPA 150-credit eligible · GPA 3.7. Coursework in Programming in Analytics, Database Management, Applied NLP, Accounting Analytics, plus current work in **Big Data Technologies** (AWS, Docker, Linux/CLI) and **Software Tools for Reproducible Research** (R, Quarto, git).
+- **B.S. Business Administration**, Boston University, Questrom — *May 2024* · Information Systems & Strategy and Innovation.
+- **[technical-reinforcement-log](https://github.com/sanghyun-s/technical-reinforcement-log)** — a public, ongoing record of my deliberate work closing the code-fluency gap behind an AI-assisted portfolio: LeetCode with honest solve-mode tracking, DataCamp course notes, and coursework, each converted into interview-ready takeaways. Built on the principle that the count matters less than the trend.
 
-- **Vice President, Digital Marketing** — Zicklin Graduate Tax Society *(Sep 2025 – Present)*
-- **Volunteer Korean Language Instructor** — Global Language Network *(Sep 2024 – Dec 2024)*
+*Leadership:* Vice President, Digital Marketing — Zicklin Graduate Tax Society *(Sep 2025 – Present)* · Volunteer Korean Language Instructor — Global Language Network *(2024)*
 
 ---
 
 ## 🛠️ Tech stack & skills
 
-**Languages:** Python · JavaScript · SQL
+**Languages:** Python · JavaScript · SQL *(primary)* · R *(coursework)*
 
 **Accounting & Finance:** QuickBooks Online/Desktop · full-cycle bookkeeping · GL maintenance · bank & credit card reconciliation · payroll processing · payroll & sales-tax compliance · financial-statement preparation · 1099 pre-review
 
-**AI / ML:** Anthropic Claude (Agent SDK, PDF Skill, Sonnet/Opus) · OpenAI API (gpt-4o-mini, text-embedding-3-small) · Retrieval-Augmented Generation (RAG) · Text-to-SQL · LangChain · ChromaDB · scikit-learn (Isolation Forest, Random Forest) · anomaly detection · prompt engineering (few-shot, chain-of-thought, structured JSON output)
+**AI / ML:** Anthropic Claude (Agent SDK, PDF Skill, Sonnet/Opus) · OpenAI API (gpt-4o-mini, text-embedding-3-small) · RAG · Text-to-SQL · LangChain · ChromaDB · scikit-learn (Isolation Forest, Random Forest) · anomaly detection · prompt engineering (few-shot, chain-of-thought, structured JSON output)
 
 **Application development:** FastAPI · Pydantic · uvicorn · Next.js 14 · React 18 · shadcn/ui · Tailwind · REST APIs · vanilla JS · HTML/CSS · Plotly
 
-**Data & BI:** pandas · openpyxl · pdfplumber · SQLite · data cleaning & validation · statistical analysis · Excel automation · Power BI · Tableau
+**Deployment & ops:** Docker *(app containers, deployed)* · Render *(PaaS, 3 apps live)* · Git/GitHub · AWS EC2/S3/IAM & Linux CLI *(coursework)* · CI/CD *(in progress)*
 
-**Business systems:** Microsoft Excel (PivotTables, Power Query, XLOOKUP, INDEX-MATCH, SUMIFS) · ADP · AMS Payroll
+**Testing:** pytest · assertion/contract test suites (LUCENT ~145-assertion suite) *(building coverage)*
 
-**Tools:** Git · GitHub · VS Code · Claude Code · npm · pip · virtualenv
+**Data & BI:** pandas · openpyxl · pdfplumber · SQLite · data cleaning & validation · statistical analysis · Excel automation · Power BI · Tableau · Quarto *(coursework)*
 
-**Languages (spoken):** Korean (native) · English (fluent)
+**Business systems:** Excel (PivotTables, Power Query, XLOOKUP, INDEX-MATCH, SUMIFS) · ADP · AMS Payroll
+
+**Spoken:** Korean (native) · English (fluent)
 
 ---
 
 ## 🌱 What I'm working on improving
 
-I'm still early in my software-engineering journey, and these projects have surfaced specific gaps I'm working on:
+These projects keep surfacing specific gaps, and I track my progress on them honestly:
 
-- **System design under iteration.** PREPARE went through five major architectural phases. Learning to anticipate which decisions will hold versus which need redoing is the slow skill.
-- **Testing discipline.** Much of my testing is still manual and visual; building proper unit and integration coverage is the next phase (LUCENT's ~145-assertion contract suite is a step in that direction).
-- **Deployment & ops.** CASSIA is live on Render and LUCENT deploys next, but containerization, hosting, and CI/CD across the whole suite are still on the roadmap.
-- **Cross-app data flow.** As the portfolio converges into TAU, how apps share data and state cleanly is a real architectural question I'm working through.
+- **System design under iteration.** PREPARE went through five major architectural phases. Anticipating which decisions will hold versus which need redoing is the slow skill.
+- **Testing discipline.** Moving from manual/visual testing toward proper unit and integration coverage — LUCENT's ~145-assertion contract suite and formal pytest study are steps in that direction.
+- **Deployment & ops.** All three main apps are now live (Render, Docker); next is deepening containerization, cloud (AWS), and CI/CD across the whole suite.
+- **Cross-app data flow.** As the portfolio converges into TAU — and toward Gen 2 interoperability — how apps share data and state cleanly is a real architectural question I'm working through.
 
 ---
 
@@ -162,6 +174,6 @@ I'm still early in my software-engineering journey, and these projects have surf
 
 - **GitHub:** [sanghyun-s](https://github.com/sanghyun-s)
 - **LinkedIn:** [sam-seong](https://www.linkedin.com/in/sam-seong/)
-- **Education:** M.S. Business Analytics, Baruch College (CUNY) · B.S. Business Administration, Boston University
+- **Live apps:** [PREPARE](https://prepare-recon.onrender.com/) · [CASSIA](https://cassia-utwt.onrender.com/) · [LUCENT](https://lucent-frontend.onrender.com)
 
-*Currently writing on LinkedIn about the build arc of these apps — the design decisions, the scope cuts, and the engineering principles that emerged along the way.*
+*Writing on LinkedIn about the build arc of these apps — the design decisions, the scope cuts, and the engineering principles that emerged along the way.*
